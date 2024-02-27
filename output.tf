@@ -52,48 +52,48 @@ output "serviceaccount_binding_service_accounts" {
 
 
 output "database_password" {
-  value       = var.truefoundry_db_enable ? random_password.truefoundry_db_password.result : ""
+  value       = var.truefoundry_db_enable ? random_password.truefoundry_db_password[0].result : ""
   sensitive   = true
   description = "Database's password"
 }
 
 output "instance_ip_address" {
-  value       = var.truefoundry_db_enable ? module.postgresql-db.instance_ip_address : ""
+  value       = var.truefoundry_db_enable ? module.postgresql-db[0].instance_ip_address : ""
   description = "Database instance IP address"
 }
 
 output "instance_name" {
-  value       = var.truefoundry_db_enable ? module.postgresql-db.instance_name : ""
+  value       = var.truefoundry_db_enable ? module.postgresql-db[0].instance_name : ""
   description = "Database instance name"
 }
 
 output "instance_self_link" {
-  value       = var.truefoundry_db_enable ? module.postgresql-db.instance_self_link : ""
+  value       = var.truefoundry_db_enable ? module.postgresql-db[0].instance_self_link : ""
   description = "Self link of the database"
 }
 
 output "instance_server_ca_cert" {
-  value       = var.truefoundry_db_enable ? module.postgresql-db.instance_server_ca_cert : ""
+  value       = var.truefoundry_db_enable ? module.postgresql-db[0].instance_server_ca_cert : ""
   sensitive   = true
   description = "Self link of the database server ca cert"
 }
 
 output "instance_service_account_email_address" {
-  value       = var.truefoundry_db_enable ? module.postgresql-db.instance_service_account_email_address : ""
+  value       = var.truefoundry_db_enable ? module.postgresql-db[0].instance_service_account_email_address : ""
   description = "Service account email address"
 }
 
 output "instances" {
-  value     = var.truefoundry_db_enable ? module.postgresql-db.instances : ""
+  value     = var.truefoundry_db_enable ? module.postgresql-db[0].instances : ""
   sensitive = true
 }
 
 output "primary" {
-  value     = var.truefoundry_db_enable ? module.postgresql-db.primary : ""
+  value     = var.truefoundry_db_enable ? module.postgresql-db[0].primary : ""
   sensitive = true
 }
 
 output "private_ip_address" {
-  value       = var.truefoundry_db_enable ? module.postgresql-db.private_ip_address : ""
+  value       = var.truefoundry_db_enable ? module.postgresql-db[0].private_ip_address : ""
   description = "Private IP address of the database instance"
 }
