@@ -72,7 +72,9 @@ No requirements.
 |------|-------------|
 | <a name="output_bucket_name"></a> [bucket\_name](#output\_bucket\_name) | GCS bucket name |
 | <a name="output_bucket_url"></a> [bucket\_url](#output\_bucket\_url) | GCS bucket URL |
+| <a name="output_database_name"></a> [database\_name](#output\_database\_name) | Database's name |
 | <a name="output_database_password"></a> [database\_password](#output\_database\_password) | Database's password |
+| <a name="output_database_username"></a> [database\_username](#output\_database\_username) | Database's username |
 | <a name="output_instance_ip_address"></a> [instance\_ip\_address](#output\_instance\_ip\_address) | Database instance IP address |
 | <a name="output_instance_name"></a> [instance\_name](#output\_instance\_name) | Database instance name |
 | <a name="output_instance_self_link"></a> [instance\_self\_link](#output\_instance\_self\_link) | Self link of the database |

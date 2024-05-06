@@ -50,6 +50,15 @@ output "serviceaccount_binding_service_accounts" {
 # Database
 ################################################################################
 
+output "database_name" {
+  value       = var.truefoundry_db_enable ? var.truefoundry_db_database_name : null
+  description = "Database's name"
+}
+
+output "database_username" {
+  value       = var.truefoundry_db_enable ? "postgres" : null
+  description = "Database's username"
+}
 
 output "database_password" {
   value       = var.truefoundry_db_enable ? random_password.truefoundry_db_password[0].result : null
