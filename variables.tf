@@ -34,6 +34,7 @@ variable "vpc_id" {
 variable "truefoundry_db_enable" {
   type        = bool
   description = "Enable CloudSQL database"
+  default     = true
 }
 
 variable "truefoundry_db_deletion_protection" {
@@ -86,6 +87,7 @@ variable "truefoundry_db_disk_autoresize" {
 variable "truefoundry_db_disk_autoresize_limit" {
   type        = number
   description = "Automically increase storage size"
+  default     = 30
 }
 
 variable "truefoundry_db_disk_size" {
@@ -109,6 +111,7 @@ variable "truefoundry_db_edition" {
 variable "truefoundry_db_tier" {
   type        = string
   description = "Instance class for SQL DB"
+  default     = "db-custom-1-3840"
 }
 variable "truefoundry_db_zone" {
   type        = string
@@ -133,11 +136,13 @@ variable "truefoundry_db_override_name" {
 variable "mlfoundry_k8s_service_account" {
   description = "The k8s mlfoundry service account name"
   type        = string
+  default     = "mlfoundry-server"
 }
 
 variable "mlfoundry_k8s_namespace" {
   description = "The k8s mlfoundry namespace"
   type        = string
+  default     = "truefoundry"
 }
 
 ################################################################################
@@ -147,11 +152,13 @@ variable "mlfoundry_k8s_namespace" {
 variable "svcfoundry_k8s_service_account" {
   description = "The k8s svcfoundry service account name"
   type        = string
+  default     = "servicefoundry-server"
 }
 
 variable "svcfoundry_k8s_namespace" {
   description = "The k8s svcfoundry namespace"
   type        = string
+  default     = "truefoundry"
 }
 
 ################################################################################
