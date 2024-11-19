@@ -4,23 +4,27 @@ Truefoundry Google Cloud Control Plane Module
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.4 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 6.11 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | ~> 3.6 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | n/a |
-| <a name="provider_random"></a> [random](#provider\_random) | n/a |
+| <a name="provider_google"></a> [google](#provider\_google) | ~> 6.11 |
+| <a name="provider_random"></a> [random](#provider\_random) | ~> 3.6 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_postgresql-db"></a> [postgresql-db](#module\_postgresql-db) | GoogleCloudPlatform/sql-db/google//modules/postgresql | 19.0.0 |
-| <a name="module_service_account_iam_bindings"></a> [service\_account\_iam\_bindings](#module\_service\_account\_iam\_bindings) | terraform-google-modules/iam/google//modules/service_accounts_iam | 7.7.1 |
-| <a name="module_service_accounts"></a> [service\_accounts](#module\_service\_accounts) | terraform-google-modules/service-accounts/google | 4.2.2 |
-| <a name="module_truefoundry_gcs"></a> [truefoundry\_gcs](#module\_truefoundry\_gcs) | terraform-google-modules/cloud-storage/google//modules/simple_bucket | 4.0.1 |
+| <a name="module_postgresql-db"></a> [postgresql-db](#module\_postgresql-db) | GoogleCloudPlatform/sql-db/google//modules/postgresql | 23.0.0 |
+| <a name="module_service_account_iam_bindings"></a> [service\_account\_iam\_bindings](#module\_service\_account\_iam\_bindings) | terraform-google-modules/iam/google//modules/service_accounts_iam | 8.0.0 |
+| <a name="module_service_accounts"></a> [service\_accounts](#module\_service\_accounts) | terraform-google-modules/service-accounts/google | 4.4.1 |
+| <a name="module_truefoundry_gcs"></a> [truefoundry\_gcs](#module\_truefoundry\_gcs) | terraform-google-modules/cloud-storage/google//modules/simple_bucket | 8.0.1 |
 
 ## Resources
 
@@ -35,12 +39,12 @@ No requirements.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Truefoundry deployment unique name | `string` | n/a | yes |
-| <a name="input_mlfoundry_k8s_namespace"></a> [mlfoundry\_k8s\_namespace](#input\_mlfoundry\_k8s\_namespace) | The k8s mlfoundry namespace | `string` | n/a | yes |
-| <a name="input_mlfoundry_k8s_service_account"></a> [mlfoundry\_k8s\_service\_account](#input\_mlfoundry\_k8s\_service\_account) | The k8s mlfoundry service account name | `string` | n/a | yes |
+| <a name="input_mlfoundry_k8s_namespace"></a> [mlfoundry\_k8s\_namespace](#input\_mlfoundry\_k8s\_namespace) | The k8s mlfoundry namespace | `string` | `"truefoundry"` | no |
+| <a name="input_mlfoundry_k8s_service_account"></a> [mlfoundry\_k8s\_service\_account](#input\_mlfoundry\_k8s\_service\_account) | The k8s mlfoundry service account name | `string` | `"mlfoundry-server"` | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | GCP Project | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | region | `string` | n/a | yes |
-| <a name="input_svcfoundry_k8s_namespace"></a> [svcfoundry\_k8s\_namespace](#input\_svcfoundry\_k8s\_namespace) | The k8s svcfoundry namespace | `string` | n/a | yes |
-| <a name="input_svcfoundry_k8s_service_account"></a> [svcfoundry\_k8s\_service\_account](#input\_svcfoundry\_k8s\_service\_account) | The k8s svcfoundry service account name | `string` | n/a | yes |
+| <a name="input_svcfoundry_k8s_namespace"></a> [svcfoundry\_k8s\_namespace](#input\_svcfoundry\_k8s\_namespace) | The k8s svcfoundry namespace | `string` | `"truefoundry"` | no |
+| <a name="input_svcfoundry_k8s_service_account"></a> [svcfoundry\_k8s\_service\_account](#input\_svcfoundry\_k8s\_service\_account) | The k8s svcfoundry service account name | `string` | `"servicefoundry-server"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources | `map(string)` | `{}` | no |
 | <a name="input_truefoundry_db_availability_type"></a> [truefoundry\_db\_availability\_type](#input\_truefoundry\_db\_availability\_type) | Postgres availability type for the master instance. Accepted values are [ZONAL, REGIONAL]. Chose REGIONAL for HA | `string` | `"REGIONAL"` | no |
 | <a name="input_truefoundry_db_database_charset"></a> [truefoundry\_db\_database\_charset](#input\_truefoundry\_db\_database\_charset) | Charset for the default database | `string` | `"UTF8"` | no |
@@ -48,18 +52,18 @@ No requirements.
 | <a name="input_truefoundry_db_database_name"></a> [truefoundry\_db\_database\_name](#input\_truefoundry\_db\_database\_name) | Name of the database | `string` | `"ctl"` | no |
 | <a name="input_truefoundry_db_deletion_protection"></a> [truefoundry\_db\_deletion\_protection](#input\_truefoundry\_db\_deletion\_protection) | Enable deletion protection | `bool` | `false` | no |
 | <a name="input_truefoundry_db_disk_autoresize"></a> [truefoundry\_db\_disk\_autoresize](#input\_truefoundry\_db\_disk\_autoresize) | Automically increase storage size | `bool` | `true` | no |
-| <a name="input_truefoundry_db_disk_autoresize_limit"></a> [truefoundry\_db\_disk\_autoresize\_limit](#input\_truefoundry\_db\_disk\_autoresize\_limit) | Automically increase storage size | `number` | n/a | yes |
+| <a name="input_truefoundry_db_disk_autoresize_limit"></a> [truefoundry\_db\_disk\_autoresize\_limit](#input\_truefoundry\_db\_disk\_autoresize\_limit) | Automically increase storage size | `number` | `30` | no |
 | <a name="input_truefoundry_db_disk_size"></a> [truefoundry\_db\_disk\_size](#input\_truefoundry\_db\_disk\_size) | Disk size of the master instance | `number` | `20` | no |
 | <a name="input_truefoundry_db_disk_type"></a> [truefoundry\_db\_disk\_type](#input\_truefoundry\_db\_disk\_type) | Disk size of the master instance | `string` | `"PD_SSD"` | no |
 | <a name="input_truefoundry_db_edition"></a> [truefoundry\_db\_edition](#input\_truefoundry\_db\_edition) | The edition of the instance, can be ENTERPRISE or ENTERPRISE\_PLUS | `string` | `null` | no |
-| <a name="input_truefoundry_db_enable"></a> [truefoundry\_db\_enable](#input\_truefoundry\_db\_enable) | Enable CloudSQL database | `bool` | n/a | yes |
+| <a name="input_truefoundry_db_enable"></a> [truefoundry\_db\_enable](#input\_truefoundry\_db\_enable) | Enable CloudSQL database | `bool` | `true` | no |
 | <a name="input_truefoundry_db_enable_override"></a> [truefoundry\_db\_enable\_override](#input\_truefoundry\_db\_enable\_override) | Enable override for truefoundry db name. You must pass truefoundry\_db\_override\_name | `bool` | `false` | no |
 | <a name="input_truefoundry_db_network_cidr"></a> [truefoundry\_db\_network\_cidr](#input\_truefoundry\_db\_network\_cidr) | Network CIDR for the truefoundry postgres database. Minimum range is /24. This CIDR must be different from the main subnet where your cluster is gettin created. This subnet is created inside the GCP's network. | `string` | n/a | yes |
 | <a name="input_truefoundry_db_override_name"></a> [truefoundry\_db\_override\_name](#input\_truefoundry\_db\_override\_name) | Override name for truefoundry db. truefoundry\_db\_enable\_override must be set true | `string` | `""` | no |
 | <a name="input_truefoundry_db_postgres_version"></a> [truefoundry\_db\_postgres\_version](#input\_truefoundry\_db\_postgres\_version) | Postgres version of cloudSQL | `string` | `"POSTGRES_15"` | no |
-| <a name="input_truefoundry_db_tier"></a> [truefoundry\_db\_tier](#input\_truefoundry\_db\_tier) | Instance class for SQL DB | `string` | n/a | yes |
+| <a name="input_truefoundry_db_tier"></a> [truefoundry\_db\_tier](#input\_truefoundry\_db\_tier) | Instance class for SQL DB | `string` | `"db-custom-1-3840"` | no |
 | <a name="input_truefoundry_db_zone"></a> [truefoundry\_db\_zone](#input\_truefoundry\_db\_zone) | Zone for SQL DB - This must match the region | `string` | n/a | yes |
-| <a name="input_truefoundry_gcs_cors_origins"></a> [truefoundry\_gcs\_cors\_origins](#input\_truefoundry\_gcs\_cors\_origins) | Allowed CORS origin for GCS bucket | `list(string)` | <pre>[<br>  "*"<br>]</pre> | no |
+| <a name="input_truefoundry_gcs_cors_origins"></a> [truefoundry\_gcs\_cors\_origins](#input\_truefoundry\_gcs\_cors\_origins) | Allowed CORS origin for GCS bucket | `list(string)` | <pre>[<br/>  "*"<br/>]</pre> | no |
 | <a name="input_truefoundry_gcs_enable_override"></a> [truefoundry\_gcs\_enable\_override](#input\_truefoundry\_gcs\_enable\_override) | Enable override for GCS bucket name. You must pass truefoundry\_gcs\_override\_name | `bool` | `false` | no |
 | <a name="input_truefoundry_gcs_enabled"></a> [truefoundry\_gcs\_enabled](#input\_truefoundry\_gcs\_enabled) | Enable creation of GCS bucket | `bool` | `false` | no |
 | <a name="input_truefoundry_gcs_force_destroy"></a> [truefoundry\_gcs\_force\_destroy](#input\_truefoundry\_gcs\_force\_destroy) | Enable force destroy on GCS bucket | `bool` | `true` | no |
