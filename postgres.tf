@@ -8,7 +8,7 @@ resource "random_password" "truefoundry_db_password" {
 
 module "postgresql-db" {
   source  = "GoogleCloudPlatform/sql-db/google//modules/postgresql"
-  version = "19.0.0"
+  version = "23.0.0"
 
   count            = var.truefoundry_db_enable ? 1 : 0
   name             = local.truefoundry_db_unique_name

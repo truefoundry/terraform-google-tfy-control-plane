@@ -1,5 +1,6 @@
 resource "google_compute_global_address" "default" {
   name          = local.truefoundry_db_unique_name
+  project       = var.project_id
   address_type  = "INTERNAL"
   purpose       = "VPC_PEERING"
   network       = var.vpc_id
