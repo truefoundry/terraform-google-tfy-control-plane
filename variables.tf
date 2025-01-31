@@ -51,7 +51,19 @@ variable "truefoundry_db_postgres_version" {
 
 variable "truefoundry_db_network_cidr" {
   type        = string
-  description = "Network CIDR for the truefoundry postgres database. Minimum range is /24. This CIDR must be different from the main subnet where your cluster is gettin created. This subnet is created inside the GCP's network."
+  description = "Network CIDR for the truefoundry postgres database. Minimum range is /24. This CIDR must be different from the main subnet where your cluster is getting created. This subnet is created inside the GCP's network."
+  default     = "10.0.0.0/24"
+
+  validation {
+    condition = (
+      var.truefoundry_db_enable == false ? true : (
+        var.truefoundry_db_network_cidr != null &&
+        can(regex("^([0-9]{1,3}\\.){3}[0-9]{1,3}/[0-9]{1,2}$", var.truefoundry_db_network_cidr)) &&
+        tonumber(split("/", var.truefoundry_db_network_cidr)[1]) <= 24
+      )
+    )
+    error_message = "When truefoundry_db_enable is true, truefoundry_db_network_cidr must be a valid CIDR notation (e.g., 10.0.0.0/24) with a prefix length of 24 or less."
+  }
 }
 
 variable "truefoundry_db_availability_type" {
@@ -116,6 +128,12 @@ variable "truefoundry_db_tier" {
 variable "truefoundry_db_zone" {
   type        = string
   description = "Zone for SQL DB - This must match the region"
+  default     = null
+
+  validation {
+    condition     = var.truefoundry_db_enable == false ? true : var.truefoundry_db_zone != null
+    error_message = "truefoundry_db_zone is required when truefoundry_db_enable is true."
+  }
 }
 
 variable "truefoundry_db_enable_override" {
