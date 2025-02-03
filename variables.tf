@@ -56,11 +56,11 @@ variable "truefoundry_db_network_cidr" {
 
   validation {
     condition = (
-      var.truefoundry_db_enable == false ? true : (
+      var.truefoundry_db_enable ? (
         var.truefoundry_db_network_cidr != null &&
         can(regex("^([0-9]{1,3}\\.){3}[0-9]{1,3}/[0-9]{1,2}$", var.truefoundry_db_network_cidr)) &&
-        tonumber(split("/", var.truefoundry_db_network_cidr)[1]) <= 24
-      )
+        tonumber(split("/", var.truefoundry_db_network_cidr)[1]) <= 28
+      ) : true
     )
     error_message = "When truefoundry_db_enable is true, truefoundry_db_network_cidr must be a valid CIDR notation (e.g., 10.0.0.0/24) with a prefix length of 24 or less."
   }
@@ -131,7 +131,7 @@ variable "truefoundry_db_zone" {
   default     = null
 
   validation {
-    condition     = var.truefoundry_db_enable == false ? true : var.truefoundry_db_zone != null
+    condition     = var.truefoundry_db_enable ? var.truefoundry_db_zone != null : true
     error_message = "truefoundry_db_zone is required when truefoundry_db_enable is true."
   }
 }

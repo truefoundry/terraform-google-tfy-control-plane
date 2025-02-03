@@ -17,7 +17,7 @@ module "postgresql-db" {
   activation_policy = "ALWAYS"
   availability_type = var.truefoundry_db_availability_type
 
-  backup_configuration = var.truefoundry_db_enable ? {
+  backup_configuration = {
     enabled                        = true
     start_time                     = "20:55"
     location                       = null
@@ -25,7 +25,7 @@ module "postgresql-db" {
     transaction_log_retention_days = "7"
     retained_backups               = 14
     retention_unit                 = "COUNT"
-  } : null
+  }
 
   db_charset            = var.truefoundry_db_database_charset
   db_collation          = var.truefoundry_db_database_collation
