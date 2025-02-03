@@ -1,4 +1,3 @@
-
 resource "random_password" "truefoundry_db_password" {
   count            = var.truefoundry_db_enable ? 1 : 0
   length           = 42
@@ -21,12 +20,13 @@ module "postgresql-db" {
   backup_configuration = {
     enabled                        = true
     start_time                     = "20:55"
-    location                       = null # will store in multi-region by default
+    location                       = null
     point_in_time_recovery_enabled = true
     transaction_log_retention_days = "7"
     retained_backups               = 14
     retention_unit                 = "COUNT"
   }
+
   db_charset            = var.truefoundry_db_database_charset
   db_collation          = var.truefoundry_db_database_collation
   db_name               = var.truefoundry_db_database_name
@@ -37,8 +37,8 @@ module "postgresql-db" {
   disk_type             = var.truefoundry_db_disk_type
   edition               = var.truefoundry_db_edition
 
-  ip_configuration = {
-    ipv4_enabled       = false # recheck
+  ip_configuration = var.truefoundry_db_enable ? {
+    ipv4_enabled       = false
     private_network    = var.vpc_id
     require_ssl        = false
     allocated_ip_range = null
@@ -48,9 +48,10 @@ module "postgresql-db" {
         value = "130.211.0.0/28"
       }
     ]
-  }
+  } : null
+
   region               = var.region
-  root_password        = random_password.truefoundry_db_password[0].result
+  root_password        = var.truefoundry_db_enable ? random_password.truefoundry_db_password[0].result : null
   zone                 = var.truefoundry_db_zone
   tier                 = var.truefoundry_db_tier
   user_labels          = local.tags
