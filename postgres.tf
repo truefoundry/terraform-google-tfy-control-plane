@@ -57,5 +57,5 @@ module "postgresql-db" {
   user_labels          = local.tags
   random_instance_name = true
 
-  depends_on = [google_service_networking_connection.default]
+  depends_on = [google_service_networking_connection.default[0]]
 }
