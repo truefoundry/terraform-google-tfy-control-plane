@@ -16,6 +16,6 @@ locals {
     },
     var.tags
   )
-  database_address = split("/", var.truefoundry_db_network_cidr)[0]
-  database_prefix  = tonumber(split("/", var.truefoundry_db_network_cidr)[1])
+  database_address = var.truefoundry_db_enable ? split("/", var.truefoundry_db_network_cidr)[0] : null
+  database_prefix  = var.truefoundry_db_enable ? tonumber(split("/", var.truefoundry_db_network_cidr)[1]) : null
 }
