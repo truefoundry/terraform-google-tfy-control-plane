@@ -1,6 +1,6 @@
 module "service_accounts" {
   source        = "terraform-google-modules/service-accounts/google"
-  version       = "4.4.1"
+  version       = "4.5.0"
   project_id    = var.project_id
   names         = [local.serviceaccount_name]
   descriptions  = ["Truefoundry serviceaccount for truefoundry control-plane components"]
