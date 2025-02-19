@@ -7,14 +7,14 @@ Truefoundry Google Cloud Control Plane Module
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.4 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 6.11 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 6.21 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | ~> 3.6 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | ~> 6.11 |
+| <a name="provider_google"></a> [google](#provider\_google) | ~> 6.21 |
 | <a name="provider_random"></a> [random](#provider\_random) | ~> 3.6 |
 
 ## Modules
@@ -23,8 +23,8 @@ Truefoundry Google Cloud Control Plane Module
 |------|--------|---------|
 | <a name="module_postgresql-db"></a> [postgresql-db](#module\_postgresql-db) | GoogleCloudPlatform/sql-db/google//modules/postgresql | 23.0.0 |
 | <a name="module_service_account_iam_bindings"></a> [service\_account\_iam\_bindings](#module\_service\_account\_iam\_bindings) | terraform-google-modules/iam/google//modules/service_accounts_iam | 8.0.0 |
-| <a name="module_service_accounts"></a> [service\_accounts](#module\_service\_accounts) | terraform-google-modules/service-accounts/google | 4.4.1 |
-| <a name="module_truefoundry_gcs"></a> [truefoundry\_gcs](#module\_truefoundry\_gcs) | terraform-google-modules/cloud-storage/google//modules/simple_bucket | 8.0.1 |
+| <a name="module_service_accounts"></a> [service\_accounts](#module\_service\_accounts) | terraform-google-modules/service-accounts/google | 4.5.0 |
+| <a name="module_truefoundry_gcs"></a> [truefoundry\_gcs](#module\_truefoundry\_gcs) | terraform-google-modules/cloud-storage/google//modules/simple_bucket | 9.1.0 |
 
 ## Resources
 
