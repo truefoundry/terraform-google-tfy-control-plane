@@ -68,6 +68,8 @@ Truefoundry Google Cloud Control Plane Module
 | <a name="input_truefoundry_gcs_enabled"></a> [truefoundry\_gcs\_enabled](#input\_truefoundry\_gcs\_enabled) | Enable creation of GCS bucket | `bool` | `true` | no |
 | <a name="input_truefoundry_gcs_force_destroy"></a> [truefoundry\_gcs\_force\_destroy](#input\_truefoundry\_gcs\_force\_destroy) | Enable force destroy on GCS bucket | `bool` | `true` | no |
 | <a name="input_truefoundry_gcs_override_name"></a> [truefoundry\_gcs\_override\_name](#input\_truefoundry\_gcs\_override\_name) | Override name for GCS bucket. truefoundry\_gcs\_enable\_override must be set true | `string` | `""` | no |
+| <a name="input_truefoundry_k8s_namespace"></a> [truefoundry\_k8s\_namespace](#input\_truefoundry\_k8s\_namespace) | The k8s truefoundry namespace | `string` | `"truefoundry"` | no |
+| <a name="input_truefoundry_k8s_service_account"></a> [truefoundry\_k8s\_service\_account](#input\_truefoundry\_k8s\_service\_account) | The k8s truefoundry service account name | `string` | `"truefoundry"` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the network VPC | `string` | n/a | yes |
 
 ## Outputs
