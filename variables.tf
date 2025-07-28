@@ -188,6 +188,17 @@ variable "truefoundry_gcs_enabled" {
   type        = bool
   default     = true
 }
+variable "truefoundry_k8s_namespace" {
+  description = "The k8s truefoundry namespace"
+  type        = string
+  default     = "truefoundry"
+}
+
+variable "truefoundry_k8s_service_account" {
+  description = "The k8s truefoundry service account name"
+  type        = string
+  default     = "truefoundry"
+}
 
 variable "truefoundry_gcs_enable_override" {
   description = "Enable override for GCS bucket name. You must pass truefoundry_gcs_override_name"
