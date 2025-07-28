@@ -186,7 +186,7 @@ variable "svcfoundry_k8s_namespace" {
 variable "truefoundry_gcs_enabled" {
   description = "Enable creation of GCS bucket"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "truefoundry_gcs_enable_override" {
