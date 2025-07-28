@@ -65,7 +65,7 @@ Truefoundry Google Cloud Control Plane Module
 | <a name="input_truefoundry_db_zone"></a> [truefoundry\_db\_zone](#input\_truefoundry\_db\_zone) | Zone for SQL DB - This must match the region | `string` | `""` | no |
 | <a name="input_truefoundry_gcs_cors_origins"></a> [truefoundry\_gcs\_cors\_origins](#input\_truefoundry\_gcs\_cors\_origins) | Allowed CORS origin for GCS bucket | `list(string)` | <pre>[<br/>  "*"<br/>]</pre> | no |
 | <a name="input_truefoundry_gcs_enable_override"></a> [truefoundry\_gcs\_enable\_override](#input\_truefoundry\_gcs\_enable\_override) | Enable override for GCS bucket name. You must pass truefoundry\_gcs\_override\_name | `bool` | `false` | no |
-| <a name="input_truefoundry_gcs_enabled"></a> [truefoundry\_gcs\_enabled](#input\_truefoundry\_gcs\_enabled) | Enable creation of GCS bucket | `bool` | `false` | no |
+| <a name="input_truefoundry_gcs_enabled"></a> [truefoundry\_gcs\_enabled](#input\_truefoundry\_gcs\_enabled) | Enable creation of GCS bucket | `bool` | `true` | no |
 | <a name="input_truefoundry_gcs_force_destroy"></a> [truefoundry\_gcs\_force\_destroy](#input\_truefoundry\_gcs\_force\_destroy) | Enable force destroy on GCS bucket | `bool` | `true` | no |
 | <a name="input_truefoundry_gcs_override_name"></a> [truefoundry\_gcs\_override\_name](#input\_truefoundry\_gcs\_override\_name) | Override name for GCS bucket. truefoundry\_gcs\_enable\_override must be set true | `string` | `""` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the network VPC | `string` | n/a | yes |
