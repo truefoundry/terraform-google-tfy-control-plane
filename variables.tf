@@ -186,7 +186,18 @@ variable "svcfoundry_k8s_namespace" {
 variable "truefoundry_gcs_enabled" {
   description = "Enable creation of GCS bucket"
   type        = bool
-  default     = false
+  default     = true
+}
+variable "truefoundry_k8s_namespace" {
+  description = "The k8s truefoundry namespace"
+  type        = string
+  default     = "truefoundry"
+}
+
+variable "truefoundry_k8s_service_account" {
+  description = "The k8s truefoundry service account name"
+  type        = string
+  default     = "truefoundry"
 }
 
 variable "truefoundry_gcs_enable_override" {

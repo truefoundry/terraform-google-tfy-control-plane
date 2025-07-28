@@ -20,6 +20,7 @@ module "service_account_iam_bindings" {
     "roles/iam.workloadIdentityUser" = [
       "serviceAccount:${var.project_id}.svc.id.goog[${var.svcfoundry_k8s_namespace}/${var.svcfoundry_k8s_service_account}]",
       "serviceAccount:${var.project_id}.svc.id.goog[${var.mlfoundry_k8s_namespace}/${var.mlfoundry_k8s_service_account}]",
+      "serviceAccount:${var.project_id}.svc.id.goog[${var.truefoundry_k8s_namespace}/${var.truefoundry_k8s_service_account}]",
     ]
   }
 }

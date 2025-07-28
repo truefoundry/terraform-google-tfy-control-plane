@@ -27,7 +27,7 @@ output "serviceaccount_iam_email" {
 }
 
 output "serviceaccount_detail" {
-  value       = module.service_accounts.service_account
+  value       = jsonencode(module.service_accounts.service_account)
   description = "Serviceaccount details"
 }
 
